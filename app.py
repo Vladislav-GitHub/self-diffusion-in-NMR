@@ -10,7 +10,8 @@ Original file is located at
 import streamlit as st
 import requests
 
-# Добавить заголовок
+
+#  Заголовок
 st.title('Bootcamp hackaton')
 
 # Заголовок приложения
