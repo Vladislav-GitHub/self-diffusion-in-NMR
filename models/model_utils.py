@@ -13,6 +13,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+
 class ExponentialModel(nn.Module):
     def __init__(self, num_terms):
         super(ExponentialModel, self).__init__()
@@ -26,12 +27,10 @@ class ExponentialModel(nn.Module):
 
 
 def load_pretrained_model(model_path: str, num_terms: int):
-
     model = ExponentialModel(num_terms)
     model.load_state_dict(torch.load(model_path))
     model.eval()
     return model
-
 
 
 def train_model(data, num_epochs=100, lr=0.01, num_terms=5):
@@ -45,7 +44,6 @@ def train_model(data, num_epochs=100, lr=0.01, num_terms=5):
     # Создание и сохранение модели
     model = ExponentialModel(num_terms)
 
-
     current_dir = os.path.dirname(os.path.abspath(__file__))
     model_path = os.path.join(current_dir, 'trained_model.pth')
 
@@ -54,7 +52,6 @@ def train_model(data, num_epochs=100, lr=0.01, num_terms=5):
         # model.eval()
     else:
         print(f"No pretrained model found at {model_path}")
-
 
     # Генерация предсказаний и вывод модели
     model.load_state_dict(torch.load('models/trained_model.pth'))
@@ -72,7 +69,6 @@ def train_model(data, num_epochs=100, lr=0.01, num_terms=5):
         history_loss.append(loss_value)
         loss.backward()
         optimizer.step()
-
     return model, history_loss
 
 def predict_model(model, x_data):
