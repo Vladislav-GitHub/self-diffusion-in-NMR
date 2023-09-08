@@ -71,6 +71,7 @@ def train_model(data, num_epochs=100, lr=0.01, num_terms=5):
         optimizer.step()
     return model, history_loss
 
+
 def predict_model(model, x_data):
     with torch.no_grad():
         predictions = model(x_data)
