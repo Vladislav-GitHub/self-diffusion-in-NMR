@@ -9,6 +9,7 @@ Original file is located at
 
 import pandas as pd
 
+
 def create_DataFrame(file_path: str):
     """
     Создание DataFrame из текстового файла, выведенного в определенном формате
@@ -26,6 +27,7 @@ def create_DataFrame(file_path: str):
         data.head()
         return data
 
+
 def create_table(file_text: list, index: int) -> list:
     """
     Создание таблицы в виде списка
@@ -36,6 +38,7 @@ def create_table(file_text: list, index: int) -> list:
             table.append(text.split())
     return table
 
+
 def find_index(file_text: list) -> int:
     """
     Поиск индекса строки с ключевым словом "Point"
@@ -45,6 +48,7 @@ def find_index(file_text: list) -> int:
             idx = file_text.index(text)
             return idx
 
+
 def list_split(line):
     """
     Разделение и фильтрация пробелов строки
@@ -52,6 +56,7 @@ def list_split(line):
     list_of_str = line.split("\n")
     list_of_str = list(filter(None, map(str.strip, list_of_str)))
     return list_of_str
+
 
 def read_file(file_path: str):
     """
